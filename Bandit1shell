@@ -1,0 +1,69 @@
+Open bandit level 0 in Linux by writing ssh bandit9@bandit.labs.overthewire.org -p 2220
+
+for level 0 password is: bandit0
+
+In level 0 enter ls to see all files and then cat<file_name> to read the content of the file. You will get the password for next level
+password for level 0 to 1: ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+
+
+In level 1 enter ls to see all files and then cat ./<filename>  ,you will get the password for next level.
+password for level 1 to 2: 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+
+
+In level 2 enter ls to see all files and then cat "<file_name>" to read inside file where we get password for next level
+password for level 2 to 3: MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+
+
+In level 3 enter ls -a to see all hidden files and then cat<hidden_file_name> to read the file where we get password for next level
+password for level 3 to 4: 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+
+
+In level 4 we have to go to inhere/ directory by using cd inhere/ and after getting into inhere/ directory use ls to list all files inside it and then use file ./* to get what is inside the file	.Here we get that one file having text instead of data ,read that file by using cat command and get the password
+password for level 4 to 5: 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+
+
+In level 5 enter ls to see file then use cd to go inside that file then again ls to get the list of all files inside it. Now search required file by using find . -readable ! - executable -size 1033c ,you will get that particular file name, read that file using cat command to get the password for next level
+password for level 5 to 6: HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+
+
+In level 6 enter ls -a to get hidden files then use find / -user bandit7 -group bandit6 -size 33c to get the file having all these things, then we get all the files with denied permission but there is one file which have password and is not denied  use cat command to read that file where we get the password for next level
+password for level 6 to 7: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+
+In level 7 enter ls to get all files and cat to read data file. Use grep and given data to find the required data line which give the right password
+Password for level 7 to 8:  dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+
+In level 8 ,we read the content of file with ls and cat command. Then use sort <file.name> | uniq -u to find the unique line in the text(uniq find unique line and sort give single line)
+password for level 8 to 9: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+
+In level 9, we read the content of file with the help of ls and cat command then we use strings data.txt | grep "=="  here we use strings because the data is in string form and grep "==" because data contains several '=' characters
+password for level 9 to 10: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+
+In level 10, we read the content of file with the help of ls and cat command then we get base64 encoded data ,decode it by using base64 -d data.txt to get the password
+Password for level 10 to 11: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+
+In level 11. The password for the next level is stored in the file data.txt, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions
+that we get by using ls and cat command, now to get the password we use cat data.txt | tr A-Za-z N-ZA-Mn-za-m where tr A-.... will shift the character A to 13 position which is N.
+password for level 11 to 12: 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+
+
+In level 12, The password for the next level is stored in the file data.txt, which is a hexdump of a file that has been repeatedly compressed. For this level it may be useful to create a directory under /tmp in which you can work. Use mkdir with a hard to guess directory name. Or better, use the command “mktemp -d”. Then copy the datafile using cp, and rename it using mv (read the manpages!)
+Password for level 12 to 13: FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
+
+
+In level 13 , there is no password but a sshkey to get to another level , we get that key by using ls to get files and then command ssh -i <file_name> bandit14@localhost -p 2220 ,it tell Linux that we enter the file using key and not the password. Now we are in bandit14 where we read the data of  /etc/bandit_pass/bandit14 
+sshkey: MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
+
+
+In level 14, use cd /etc/bandit_pass/bandit14 to enter in this directory, then use ls to list all files and use cat to read bandit14 where we get a password MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS that we have to submit to port 30000 on localhost that we will do by using nc command with localhost and port number ,after that we gt the password for level 14 to 15: 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
+
+
+In level 15, use ncat --help to get list of all commands and find command to connect or listen with SSL which is --ssl, now type ncat localhost(ip) 30002 --ssl, enter and then give password of level 15, we will get new password
+Password for level 15 to 16: kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx
+
+
+
+
